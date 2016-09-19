@@ -15,4 +15,14 @@ module Enumerable
 		self
 	end
 
+	def my_select
+		selection_arr = []
+		self.my_each do |num|
+			if yield(num)
+				selection_arr.push(num)
+			end
+		end
+		selection_arr
+	end
+
 end
