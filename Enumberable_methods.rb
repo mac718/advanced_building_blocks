@@ -17,12 +17,21 @@ module Enumerable
 
 	def my_select
 		selection_arr = []
-		self.my_each do |num|
-			if yield(num)
-				selection_arr.push(num)
+		self.my_each do |elem|
+			if yield(elem)
+				selection_arr.push(elem)
 			end
 		end
 		selection_arr
+	end
+
+	def my_all?
+		self.my_each do |elem|
+			if yield(elem) == false
+				return false
+			end
+		end
+		true
 	end
 
 end
