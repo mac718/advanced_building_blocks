@@ -52,4 +52,24 @@ module Enumerable
 		true
 	end
 
+	def my_count(arg = nil)
+		count = 0
+		if block_given?
+			self.my_each do |i|
+				if yield(i)
+					count += 1 
+				end
+			end
+		elsif arg != nil
+			self.my_each do |i|
+				if i == arg
+					count += 1 
+				end
+			end
+		else
+			self.my_each {|i| count += 1}
+		end
+		count	
+	end
+
 end
