@@ -87,5 +87,9 @@ module Enumerable
 		end
 		total
 	end
+	
+	def multiply_els
+		self.my_inject(1){|els, total| els * total}
+	end
 
 end
