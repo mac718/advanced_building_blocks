@@ -80,4 +80,12 @@ module Enumerable
 		mapped_arr
 	end
 
+	def my_inject(x = 0)
+		total = x
+		self.my_each do |i|
+			total = yield(i, total)
+		end
+		total
+	end
+
 end
