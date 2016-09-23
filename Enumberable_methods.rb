@@ -80,16 +80,19 @@ module Enumerable
 		mapped_arr
 	end
 
-	def my_inject(x = 0)
-		total = x
+	def my_inject(x = nil)
 		self.my_each do |i|
-			total = yield(i, total)
+			if x == nil
+				x = self[0]
+			else
+				x = yield(i, x)
+			end
 		end
-		total
+		x
 	end
 	
 	def multiply_els
-		self.my_inject(1){|els, total| els * total}
+		self.my_inject {|els, total| els * total}
 	end
 
 end
