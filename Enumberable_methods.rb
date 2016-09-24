@@ -95,4 +95,19 @@ module Enumerable
 		self.my_inject {|els, total| els * total}
 	end
 
+	#Alternate my_map that accepts either a block or a proc
+	def my_map(my_proc = nil)
+		mapped_arr = []
+		if block_given? && !my_proc
+			self.my_each do |i|
+				mapped_arr << yield(i)
+			end
+		else
+			self.my_each do |i|
+				mapped_arr << my_proc.call(i)
+			end
+		end
+		mapped_arr
+	end
+
 end
