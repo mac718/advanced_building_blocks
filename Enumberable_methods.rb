@@ -1,7 +1,7 @@
 module Enumerable
 	def my_each
-		for elm in self
-			yield(elm)
+		for i in self
+			yield(i)
 		end
 		self
 	end
@@ -17,17 +17,17 @@ module Enumerable
 
 	def my_select
 		selection_arr = []
-		self.my_each do |elem|
-			if yield(elem)
-				selection_arr.push(elem)
+		self.my_each do |i|
+			if yield(i)
+				selection_arr.push(i)
 			end
 		end
 		selection_arr
 	end
 
 	def my_all?
-		self.my_each do |elem|
-			if yield(elem) == false
+		self.my_each do |i|
+			if yield(i) == false
 				return false
 			end
 		end
@@ -35,8 +35,8 @@ module Enumerable
 	end
 
 	def my_any?
-		self.my_each do |elem|
-			if yield(elem) == true
+		self.my_each do |i|
+			if yield(i) == true
 				return true
 			end
 		end
@@ -44,8 +44,8 @@ module Enumerable
 	end
 
 	def my_none?
-		self.my_each do |elem|
-			if yield(elem) == true
+		self.my_each do |i|
+			if yield(i) == true
 				return false
 			end
 		end
